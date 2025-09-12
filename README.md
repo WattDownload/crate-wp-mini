@@ -28,7 +28,9 @@
 
   ```bash
   cargo add wp-mini
-  ```  
+  ```
+
+- Follow cocs: [docs](https://docs.rs/wp-mini)
 ---
 
 ## Get Started (Dev)
