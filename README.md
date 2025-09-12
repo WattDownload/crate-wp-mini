@@ -21,6 +21,7 @@
 - Story Metadata 
 - User Metadata
 - Story Content
+- Authenticate
 
 ## Get Started
 - Add to your project with: 
