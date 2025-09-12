@@ -1,0 +1,22 @@
+[package]
+name = "wp-mini"
+version = "0.1.0-alpha.4"
+edition = "2024"
+description = "Minimal async API Wrapper for WP | Only Reader/Public API | Extremely minimal."
+license = "AGPL-3.0-only"
+documentation = "https://docs.rs/wp-mini"
+homepage = "https://wprs.dev/mini"
+repository = "https://github.com/WattDownload/wp-mini"
+authors = ["ZhiFenBL"]
+
+[dependencies]
+bytes = "1.10.1"
+reqwest = { version = "0.12.23", features = ["cookies", "json"] }
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.143"
+strum = "0.27.2"
+strum_macros = "0.27.2"
+thiserror = "2.0.16"
+
+[dev-dependencies]
+tokio = { version = "1.47.1", features = ["full"] }
