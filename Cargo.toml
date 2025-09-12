@@ -6,7 +6,7 @@ description = "Minimal async API Wrapper for WP | Only Reader/Public API | Extre
 license = "AGPL-3.0-only"
 documentation = "https://docs.rs/wp-mini"
 homepage = "https://wprs.dev/mini"
-repository = "https://github.com/WattDownload/wp-mini"
+repository = "https://github.com/WattDownload/crate-wp-mini"
 authors = ["ZhiFenBL"]
 
 [dependencies]
