@@ -66,12 +66,17 @@ impl WattpadClientBuilder {
                 );
 
                 // Insert the user-agent header, it will override any existing one in the map.
-                headers.insert(reqwest::header::USER_AGENT, HeaderValue::from_str(&ua_string).expect("Invalid User-Agent string"));
+                headers.insert(USER_AGENT, HeaderValue::from_str(&ua_string).expect("Invalid User-Agent string"));
 
-                ReqwestClient::builder()
-                    .default_headers(headers)
-                    .cookie_store(true)
-                    .build()
+                let mut client_builder = ReqwestClient::builder()
+                    .default_headers(headers);
+
+                #[cfg(not(target_arch = "wasm32"))]
+                {
+                    client_builder = client_builder.cookie_store(true);
+                }
+ 
+                client_builder.build()
                     .expect("Failed to build reqwest client")
             }
         };
@@ -146,10 +151,24 @@ impl WattpadClient {
 
         let response = self.http.post(url).form(&payload).send().await?;
 
-        // A successful login is indicated by the presence of session cookies in the response.
-        if response.cookies().next().is_none() {
-            self.is_authenticated.store(false, Ordering::SeqCst);
-            return Err(WattpadError::AuthenticationFailed);
+        // --- NATIVE-SPECIFIC LOGIC ---
+        // For native builds, we verify that cookies were actually returned.
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            if response.cookies().next().is_none() {
+                self.is_authenticated.store(false, Ordering::SeqCst);
+                return Err(WattpadError::AuthenticationFailed);
+            }
+        }
+
+        // --- WASM-SPECIFIC LOGIC ---
+        // For WASM, the browser handles cookies. We just check for a success status.
+        #[cfg(target_arch = "wasm32")]
+        {
+            if !response.status().is_success() {
+                self.is_authenticated.store(false, Ordering::SeqCst);
+                return Err(WattpadError::AuthenticationFailed);
+            }
         }
 
         self.is_authenticated.store(true, Ordering::SeqCst);
