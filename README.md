@@ -23,6 +23,9 @@
 - Story Content
 - Authenticate
 
+> [!TIP]
+> npm pacakge is available: `npm i wp-mini`
+
 ## Get Started
 - Add to your project with: 
 
