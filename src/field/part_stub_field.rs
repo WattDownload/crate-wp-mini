@@ -75,14 +75,3 @@ impl DefaultableFields for PartStubField {
         ]
     }
 }
-
-impl PartStubField {
-    /// A constant slice of fields that require authentication.
-    ///
-    /// Note: This is largely superseded by the `AuthRequiredFields` trait implementation
-    /// but is kept for potential internal checks.
-    pub(crate) const AUTH_REQUIRED_FIELDS: &'static [Self] = &[
-        Self::Voted,
-        Self::Deleted, // TODO: Find if this is not in the stub or can be retrieved
-    ];
-}
