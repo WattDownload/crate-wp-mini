@@ -39,7 +39,7 @@ pub struct Part {
     /// The total number of reads the part has received.
     pub read_count: Option<i64>,
     /// The unique identifier of the parent story.
-    pub group_id: Option<String>,
+    pub group_id: Option<i64>,
     /// A boolean flag indicating if the currently authenticated user has voted for this part.
     pub voted: Option<bool>,
     /// The parent story object that this part belongs to.
