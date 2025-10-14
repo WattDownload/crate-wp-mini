@@ -1,6 +1,6 @@
 [package]
 name = "wp-mini"
-version = "0.1.0-alpha.6"
+version = "0.1.1"
 edition = "2024"
 description = "Minimal async API Wrapper for WP | Only Reader/Public API | Extremely minimal."
 license = "AGPL-3.0-only"
