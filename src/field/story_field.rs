@@ -1,11 +1,11 @@
 use crate::field::user_stub_field::UserStubField;
-use crate::field::{part_reference_field::PartReferenceField, part_stub_field::PartStubField};
+use crate::field::{part_reference_field::PartReferenceField, part_stub_field::PartStubField, LanguageField};
 use crate::field::{AuthRequiredFields, DefaultableFields};
 use crate::impl_field_display;
 use strum_macros::AsRefStr;
 
 /// Represents the fields that can be requested for a `Story` object from the Wattpad API.
-#[derive(Debug, Clone, AsRefStr, PartialEq, Eq)]
+#[derive(Debug, Clone, AsRefStr, PartialEq, Eq, Ord, PartialOrd, Hash)]
 #[strum(serialize_all = "camelCase")]
 pub enum StoryField {
     /// The unique numerical identifier of the story.
@@ -25,7 +25,7 @@ pub enum StoryField {
     /// The total number of comments on the story.
     CommentCount,
     /// The numerical identifier for the story's language.
-    Language,
+    Language(Vec<LanguageField>),
 
     /// A complex field representing the author of the story, with selectable sub-fields.
     #[strum(disabled)]
@@ -96,7 +96,7 @@ impl DefaultableFields for StoryField {
             Self::VoteCount,
             Self::ReadCount,
             Self::CommentCount,
-            Self::Language,
+            Self::Language(vec![LanguageField::Id]),
             Self::Description,
             Self::Cover,
             Self::CoverTimestamp,

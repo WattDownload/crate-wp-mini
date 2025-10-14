@@ -7,7 +7,7 @@ use strum_macros::AsRefStr;
 ///
 /// A `PartStub` is typically a lightweight or summary representation of a story part,
 /// often used when a full `Part` object is not required.
-#[derive(Debug, Clone, AsRefStr, PartialEq, Eq)]
+#[derive(Debug, Clone, AsRefStr, PartialEq, Eq, Ord, PartialOrd, Hash)]
 #[strum(serialize_all = "camelCase")]
 pub enum PartStubField {
     /// The unique numerical identifier of the story part.

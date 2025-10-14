@@ -4,7 +4,7 @@ use strum_macros::{Display, EnumIter};
 /// Represents the sub-fields for a `text_url` object.
 ///
 /// This object typically provides expiring URLs for accessing story part content.
-#[derive(Debug, Clone, Copy, Display, EnumIter, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, Display, EnumIter, PartialEq, Eq, Ord, PartialOrd, Hash)]
 #[strum(serialize_all = "camelCase")]
 pub enum TextUrlField {
     /// The direct, often temporary, URL to the story part's text content.

@@ -5,7 +5,7 @@ use strum_macros::{Display, EnumIter};
 ///
 /// A `PartReference` is typically a lightweight link to a story part,
 /// often found within a list of parts in a story object.
-#[derive(Debug, Clone, Copy, Display, EnumIter, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, Display, EnumIter, PartialEq, Eq, Ord, PartialOrd, Hash)]
 #[strum(serialize_all = "camelCase")]
 pub enum PartReferenceField {
     /// The unique numerical identifier of the story part.

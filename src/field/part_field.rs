@@ -4,7 +4,7 @@ use crate::impl_field_display;
 use strum_macros::AsRefStr;
 
 /// Represents the fields that can be requested for a `Part` object from the Wattpad API.
-#[derive(Debug, Clone, AsRefStr, PartialEq, Eq)]
+#[derive(Debug, Clone, AsRefStr, PartialEq, Eq, Ord, PartialOrd, Hash)]
 #[strum(serialize_all = "camelCase")]
 pub enum PartField {
     /// The unique numerical identifier of the story part.

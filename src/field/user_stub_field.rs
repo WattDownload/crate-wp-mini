@@ -5,7 +5,7 @@ use strum_macros::{Display, EnumIter};
 ///
 /// A `UserStub` is a lightweight or summary representation of a user,
 /// often embedded in other API objects like stories or comments.
-#[derive(Debug, Clone, Copy, Display, EnumIter, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, Display, EnumIter, PartialEq, Eq, Ord, PartialOrd, Hash)]
 #[strum(serialize_all = "camelCase")]
 pub enum UserStubField {
     /// The user's unique username.

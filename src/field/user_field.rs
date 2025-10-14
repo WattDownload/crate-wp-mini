@@ -2,7 +2,7 @@ use crate::field::{AuthRequiredFields, DefaultableFields};
 use strum_macros::{AsRefStr, Display};
 
 /// Represents the fields that can be requested for a `User` object from the Wattpad API.
-#[derive(Debug, Clone, Display, AsRefStr, PartialEq, Eq)]
+#[derive(Debug, Clone, Display, AsRefStr, PartialEq, Eq, Ord, PartialOrd, Hash)]
 #[strum(serialize_all = "camelCase")]
 pub enum UserField {
     /// The user's unique, public username.

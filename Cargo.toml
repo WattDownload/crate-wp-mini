@@ -1,6 +1,6 @@
 [package]
 name = "wp-mini"
-version = "0.1.0-alpha.5"
+version = "0.1.0-alpha.6"
 edition = "2024"
 description = "Minimal async API Wrapper for WP | Only Reader/Public API | Extremely minimal."
 license = "AGPL-3.0-only"
@@ -14,12 +14,12 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 bytes = "1.10.1"
-reqwest = { version = "0.12.23", features = ["cookies", "json"] }
+reqwest = { version = "0.12.24", features = ["cookies", "json"] }
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.145"
 strum = "0.27.2"
 strum_macros = "0.27.2"
-thiserror = "2.0.16"
+thiserror = "2.0.17"
 
 [dev-dependencies]
 tokio = { version = "1.47.1", features = ["full"] }
