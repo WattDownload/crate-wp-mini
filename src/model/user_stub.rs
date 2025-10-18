@@ -8,7 +8,7 @@ use serde::Deserialize;
 /// It's often embedded in other API responses (like stories or comments) to avoid
 /// sending redundant data. It can be "upgraded" to a full `User` object using the
 /// `fetch_full_profile` method.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct UserStub {
     /// The user's unique username.
     #[serde(rename = "name")]

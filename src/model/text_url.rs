@@ -4,7 +4,7 @@ use serde::Deserialize;
 ///
 /// This object provides URLs and tokens for accessing the actual text content
 /// of a story part, which is often served from a separate, temporary URL.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct TextUrl {
     /// The direct, often temporary and expiring, URL to the story part's text content.

@@ -1,7 +1,7 @@
 use serde::Deserialize;
 
 /// Represents the content of a story part, typically returned in a structured JSON format.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct PartContent {
     /// The full text content of the story part.

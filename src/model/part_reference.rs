@@ -7,7 +7,7 @@ use serde::Deserialize;
 /// This struct is often used in lists (e.g., a story's list of parts) where sending
 /// the full part data for each item would be inefficient. It can be "upgraded" to a
 /// full `Part` object using the `fetch_full_part` method.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct PartReference {
     /// The unique numerical identifier of the story part.

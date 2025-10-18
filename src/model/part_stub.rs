@@ -8,7 +8,7 @@ use serde::Deserialize;
 /// often used in lists where sending the complete data for every part would be
 /// inefficient. It can be "upgraded" to a full `Part` object using the
 /// `fetch_full_part` method.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct PartStub {
     /// The unique numerical identifier of the story part.

@@ -5,7 +5,7 @@ use serde::Deserialize;
 /// This struct contains all the publicly available fields for a user's profile.
 /// Some fields, noted in the comments, are only available when making an authenticated
 /// request for the current user's own profile.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct User {
     /// The user's unique, public username.

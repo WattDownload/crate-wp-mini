@@ -1,7 +1,7 @@
 use serde::Deserialize;
 
 /// Represents a language object from the Wattpad API.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct Language {
     /// The unique numerical identifier of the language.

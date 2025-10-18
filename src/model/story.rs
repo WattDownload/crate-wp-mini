@@ -3,7 +3,7 @@ use crate::types::{PartReferenceResponse, PartStubResponse, UserStubResponse};
 use serde::Deserialize;
 
 /// Represents a full story object from the Wattpad API.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct Story {
     /// The unique identifier of the story.
