@@ -30,7 +30,7 @@
   cargo add wp-mini
   ```
 
-- Follow cocs: [docs](https://docs.rs/wp-mini)
+- Follow [docs](https://docs.rs/wp-mini)
 ---
 
 ## Get Started (Dev)
