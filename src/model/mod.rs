@@ -15,6 +15,7 @@ mod story;
 mod text_url;
 mod user;
 mod user_stub;
+mod user_stories;
 
 pub(crate) use language::*;
 pub(crate) use part::*;
@@ -25,3 +26,4 @@ pub(crate) use story::*;
 pub(crate) use text_url::*;
 pub(crate) use user::*;
 pub(crate) use user_stub::*;
+pub(crate) use user_stories::*;

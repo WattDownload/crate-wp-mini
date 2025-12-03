@@ -7,6 +7,7 @@ pub mod field;
 mod error;
 mod model;
 pub mod types;
+mod pagination;
 
 // Publicly export the primary types for easy use.
 pub use client::WattpadClient;

@@ -29,3 +29,6 @@ pub type TextUrlResponse = model::TextUrl;
 
 /// Represents the response data for a story part's content. Alias for [`model::PartContent`].
 pub type PartContentResponse = model::PartContent;
+
+/// Represents the response fata for a user's stories. Alias for [`model::UserStories`].
+pub type UserStoriesResponse = model::UserStories;

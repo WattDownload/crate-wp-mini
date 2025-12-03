@@ -237,6 +237,7 @@ async fn handle_response<T: serde::de::DeserializeOwned>(
 ///
 /// This struct uses a fluent, chainable interface to build up an API call
 /// with its path, parameters, fields, and authentication requirements before sending it.
+#[derive(Clone)] // Needed for pagination support.
 pub(crate) struct WattpadRequestBuilder<'a> {
     client: &'a reqwest::Client,
     is_authenticated: &'a Arc<AtomicBool>,
@@ -302,7 +303,7 @@ impl<'a> WattpadRequestBuilder<'a> {
     /// # Errors
     /// Returns `WattpadError::AuthenticationRequired` if a field needs authentication
     /// but the client is not logged in.
-    pub(crate) fn fields<T>(mut self, fields: Option<&[T]>) -> Result<Self, WattpadError>
+    pub(crate) fn fields<T>(mut self, fields: Option<&[T]>, wrap: Option<&str>) -> Result<Self, WattpadError>
     where
         T: ToString + DefaultableFields + AuthRequiredFields + PartialEq + Clone,
     {
@@ -323,11 +324,17 @@ impl<'a> WattpadRequestBuilder<'a> {
             }
         }
 
-        let fields_str = fields_to_query
-            .iter()
-            .map(|f| f.to_string())
-            .collect::<Vec<_>>()
-            .join(",");
+        let fields_str = {
+            let base = fields_to_query
+                .iter()
+                .map(|f| f.to_string())
+                .collect::<Vec<_>>()
+                .join(",");
+
+            wrap
+                .map(|w| format!("{w}({base})"))
+                .unwrap_or(base)
+        };
 
         self.params.push(("fields", fields_str));
         Ok(self)

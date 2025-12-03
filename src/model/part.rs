@@ -17,7 +17,7 @@ pub struct Part {
     pub text_url: Option<TextUrlResponse>,
 
     /// The content rating of the story part.
-    pub rating: Option<i64>,
+    pub rating: Option<u64>,
     /// A boolean flag indicating whether the part is a draft.
     pub draft: Option<bool>,
     /// The timestamp when the part was last modified.
@@ -27,17 +27,17 @@ pub struct Part {
     /// A boolean flag indicating if the part contains images that have been banned.
     pub has_banned_images: Option<bool>,
     /// The length of the story part, often representing an estimated reading time in seconds.
-    pub length: Option<i64>,
+    pub length: Option<u64>,
     /// The ID of any video associated with the part.
     pub video_id: Option<String>,
     /// The URL for the part's cover image.
     pub photo_url: Option<String>,
     /// The total number of comments on the part.
-    pub comment_count: Option<i64>,
+    pub comment_count: Option<u64>,
     /// The total number of votes the part has received.
-    pub vote_count: Option<i64>,
+    pub vote_count: Option<u64>,
     /// The total number of reads the part has received.
-    pub read_count: Option<i64>,
+    pub read_count: Option<u64>,
     /// The unique identifier of the parent story.
     pub group_id: Option<String>,
     /// A boolean flag indicating if the currently authenticated user has voted for this part.

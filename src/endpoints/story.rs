@@ -58,7 +58,7 @@ impl StoryClient {
             reqwest::Method::GET,
             &format!("/api/v3/stories/{}", story_id),
         )
-            .fields(fields)?
+            .fields(fields, None)?
             .execute()
             .await
     }
@@ -103,7 +103,7 @@ impl StoryClient {
             reqwest::Method::GET,
             &format!("/api/v3/story_parts/{}", part_id),
         )
-            .fields(fields)?
+            .fields(fields, None)?
             .execute()
             .await
     }

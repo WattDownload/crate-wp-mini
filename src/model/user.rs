@@ -32,7 +32,7 @@ pub struct User {
     /// A numerical code representing the user's gender.
     pub gender_code: Option<String>,
     /// The numerical identifier for the user's preferred language.
-    pub language: Option<i64>,
+    pub language: Option<u64>,
     /// The user's locale string (e.g., "en_US").
     pub locale: Option<String>,
     /// The timestamp when the user's account was created.
@@ -55,18 +55,18 @@ pub struct User {
     pub smashwords: Option<String>,
     /// A link to the user's Bubok profile.
     pub bubok: Option<String>,
-    /// The total number of votes received across all of the user's stories.
-    pub votes_received: Option<i64>,
+    /// The total number of votes received across all the user's stories.
+    pub votes_received: Option<u64>,
     /// The number of stories the user has published.
-    pub num_stories_published: Option<i64>,
+    pub num_stories_published: Option<u64>,
     /// The number of other users this user is following.
-    pub num_following: Option<i64>,
+    pub num_following: Option<u64>,
     /// The number of followers this user has.
-    pub num_followers: Option<i64>,
+    pub num_followers: Option<u64>,
     /// The number of public messages on the user's profile.
-    pub num_messages: Option<i64>,
+    pub num_messages: Option<u64>,
     /// The number of public reading lists the user has created.
-    pub num_lists: Option<i64>,
+    pub num_lists: Option<u64>,
     /// A boolean flag indicating if the user has verified their email address.
     #[serde(rename = "verified_email")]
     pub verified_email: Option<bool>,
