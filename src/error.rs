@@ -5,7 +5,6 @@
 //! It also includes the logic for parsing raw error messages from the Wattpad API
 //! into more specific, user-friendly error variants.
 
-use reqwest;
 use serde::Deserialize;
 use thiserror::Error;
 

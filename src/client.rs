@@ -312,8 +312,8 @@ impl<'a> WattpadRequestBuilder<'a> {
             _ => Cow::from(T::default_fields()),
         };
 
-        if !self.is_authenticated.load(Ordering::SeqCst) {
-            if let Some(auth_field) = fields_to_query.iter().find(|f| f.auth_required()) {
+        if !self.is_authenticated.load(Ordering::SeqCst)
+            && let Some(auth_field) = fields_to_query.iter().find(|f| f.auth_required()) {
                 return Err(WattpadError::AuthenticationRequired {
                     field: auth_field.to_string(),
                     context: format!(
@@ -322,7 +322,6 @@ impl<'a> WattpadRequestBuilder<'a> {
                     ),
                 });
             }
-        }
 
         let fields_str = {
             let base = fields_to_query
